@@ -340,12 +340,16 @@ function calculateBalance(arr) {
  *    createChunks([10, 20, 30, 40, 50], 1) => [[10], [20], [30], [40], [50]]
  */
 function createChunks(arr, chunkSize) {
-  const chunks = [];
+  const sumChanks = Math.ceil(arr.length / chunkSize);
+  return Array.from({ length: sumChanks }, (_, i) =>
+    arr.slice(i * chunkSize, i * chunkSize + chunkSize)
+  );
+  // const chunks = [];
 
-  for (let i = 0; i < arr.length; i += chunkSize) {
-    chunks.push(arr.slice(i, i + chunkSize));
-  }
-  return chunks;
+  // for (let i = 0; i < arr.length; i += chunkSize) {
+  //   chunks.push(arr.slice(i, i + chunkSize));
+  // }
+  // return chunks;
 }
 
 /**
@@ -361,14 +365,15 @@ function createChunks(arr, chunkSize) {
  *    generateOdds(5) => [ 1, 3, 5, 7, 9 ]
  */
 function generateOdds(len) {
-  if (len === 0) {
-    return [];
-  }
-  const arr = [];
-  for (let i = 0; i < len; i += 1) {
-    arr.push(2 * i + 1);
-  }
-  return arr;
+  return Array.from({ length: len }, (_, i) => 2 * i + 1);
+  // if (len === 0) {
+  //   return [];
+  // }
+  // const arr = [];
+  // for (let i = 0; i < len; i += 1) {
+  //   arr.push(2 * i + 1);
+  // }
+  // return arr;
 }
 
 /**
